@@ -9,7 +9,27 @@ const path = require('path'); // usado para manipular diretórios
 const admin = require('./routes/admin');
 const mongoose = require('mongoose');
 
-/* Configs */
+// Para trabalhar com sessions
+const session = require('express-session');
+const flash = require('connect-flash');
+
+/* CONFIGS */
+/* Sessão */
+app.use(
+  session({
+    secret: 'cursodenode',
+    resave: true,
+    saveUninitialized: true,
+  }),
+);
+
+/* Middleware */
+app.use((req, res, next) => {
+  res.locals.success = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+});
+
 /* Body parser */
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -40,7 +60,7 @@ app.use((req, res, next) => {
   next();
 });
 
-/* Rotas */
+/* ROTAS */
 // Puxa as rotas da pasta routes com o prefixo admin
 app.use('/admin', admin);
 
