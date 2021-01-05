@@ -22,6 +22,7 @@ app.use(
     saveUninitialized: true,
   }),
 );
+app.use(flash());
 
 /* Middleware */
 app.use((req, res, next) => {
