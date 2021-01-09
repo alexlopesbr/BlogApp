@@ -56,11 +56,6 @@ mongoose
 /* Public */
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
-  console.log('Es sou um MIDDLEWARE!');
-  next();
-});
-
 /* ROTAS */
 // Puxa as rotas da pasta routes com o prefixo admin
 app.use('/admin', admin);
