@@ -16,7 +16,7 @@
 <h2 align="center">Preview 💻📱</h2>
 
    <p align="center">
-      <img src="./public/img/blogApp.jpg" width="100%" alt="Happy Demo"/>
+      <img src="./public/img/blog-nodejs.gif" width="50%" alt="Happy Demo"/>
    </p>
 
 ---
